@@ -1,7 +1,8 @@
-import { logo, heroImage, aboutImage } from "../assets";
-import { LayoutFront } from "../components";
+import { logo, heroImage, aboutImage } from "../../assets";
+import { LayoutFront } from "../../components";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { BsWhatsapp } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -18,12 +19,12 @@ function Home() {
                 periksakan tubuh anda saat ini dengan klik tombol periksa
                 sekarang dibawah ini.
               </p>
-              <a
-                href="login.html"
+              <Link
+                to="/login"
                 className="bg-light-green text-white fw-bold font-secondary fs-5 rounded-pill py-2 px-4 text-center shadow-btn d-inline-block mt-1"
               >
                 Periksa Sekarang <MdKeyboardArrowRight className="fs-2" />
-              </a>
+              </Link>
             </div>
             <div className="col-md-6 d-flex justify-content-end">
               <img src={heroImage} className="hero-image my-5" alt="image" />
@@ -101,6 +102,7 @@ function Home() {
                 width={"100%"}
                 height={"500"}
                 loading={"lazy"}
+                sandbox="allow-scripts"
               ></iframe>
 
               <div className="d-flex justify-content-center my-3">

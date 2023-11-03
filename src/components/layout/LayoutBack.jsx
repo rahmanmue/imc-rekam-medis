@@ -3,6 +3,7 @@ import { logo } from "./../../assets/index";
 import { BiPlusMedical, BiLogOut, BiSolidUser } from "react-icons/bi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { FaFileMedical, FaUserInjured, FaUserCog } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function LayoutBack({ children }) {
   const [active, setActive] = useState("dashboard");
@@ -10,6 +11,10 @@ function LayoutBack({ children }) {
   const handleActive = (submenu) => {
     const submenuActive = active == submenu ? "active" : " ";
     return submenuActive;
+  };
+
+  const logout = () => {
+    localStorage.romove();
   };
 
   return (
@@ -82,19 +87,20 @@ function LayoutBack({ children }) {
               </li>
             </ul>
             <div className="submenu py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
-              <a
-                href="#"
+              <Link
+                to="/"
+                onClick={logout}
                 className="d-flex align-items-center text-white text-decoration-none "
               >
                 <BiLogOut className="fs-4 icon" />
                 <span className="d-none d-sm-inline mx-1">Keluar</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
         <div className="col d-flex flex-column h-sm-100">
           <main className="row overflow-auto">
-            <div class="col pt-4">
+            <div className="col pt-4">
               <h4 className="fw-semibold text-capitalize font-primary text-dark-blue">
                 {active}
               </h4>

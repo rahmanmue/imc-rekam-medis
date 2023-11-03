@@ -2,7 +2,7 @@ import {
   LayoutBack,
   CardDashboard,
   CardDashboardWelcome,
-} from "./../components";
+} from "../../components";
 import { FaFileMedical, FaUserInjured } from "react-icons/fa";
 
 function Dashboard() {

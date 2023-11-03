@@ -1,6 +1,7 @@
-import Home from "./Home";
-import Login from "./Login";
-import Register from "./Register";
-import Dashboard from "./Dashboard";
+import Home from "./Home/Home";
+import Login from "./Login/Login";
+import Register from "./Register/Register";
+import Dashboard from "./Dashboard/Dashboard";
+import Coba from "./Coba";
 
-export { Home, Login, Register, Dashboard };
+export { Home, Login, Register, Dashboard, Coba };

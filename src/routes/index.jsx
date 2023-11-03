@@ -1,9 +1,13 @@
-import { Home, Login, Register, Dashboard, Coba } from "./pages";
+import { Home, Login, Register, Dashboard, Coba } from "../pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Routes from "./routes";
+import {
+  PrivateRouteAdmin,
+  PrivateRoutePasien,
+  PrivateRouteDokter,
+  PublicRoute,
+} from "./ProtectedRoutes";
 
-function App() {
-  // return <Routes />;
+function Index() {
   return (
     <BrowserRouter>
       <Routes>
@@ -11,11 +15,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route element={<PrivateRouteAdmin />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
+
         <Route path="/coba" element={<Coba />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
-export default App;
+export default Index;

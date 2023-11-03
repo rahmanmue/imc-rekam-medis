@@ -24,6 +24,10 @@ a {
   text-decoration: none;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 a:hover {
   color: inherit;
 }
@@ -46,6 +50,15 @@ a:hover {
 
 .bg-dark-blue {
   background-color: var(--dark-blue);
+}
+
+.disabled {
+  cursor: not-allowed;
+  background: #aaaaaa;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .font-primary {
