@@ -3,7 +3,6 @@ import {
   Login,
   Register,
   Dashboard,
-  Coba,
   ListAkun,
   RekamMedis,
   RiwayatPasien,
@@ -27,7 +26,6 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/" element={<Home />} />
-        <Route path="/coba" element={<Coba />} />
 
         <Route element={<PublicRoute />}>
           <Route path="/login" element={<Login />} />
