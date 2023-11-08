@@ -1,6 +1,6 @@
 import LayoutAccess from "./layout/LayoutAccess";
 import LayoutBack from "./layout/LayoutBack";
-import LayoutFront from "./layout/layoutFront";
+import LayoutFront from "./layout/LayoutFront";
 import CardDashboard from "./Card/CardDashboard";
 import CardDashboardWelcome from "./Card/CardDashboardWelcome";
 import InputForm from "./Input/InputForm";
