@@ -130,7 +130,7 @@ function Home() {
             <div className="col-md-12 " id="contact">
               <div className="flex-content justify-content-center align-items-center gap-3">
                 <a
-                  href=""
+                  href="https://wa.link/4x5g4r"
                   className="bg-primary-green py-3 px-4 fs-5 rounded-pill text-white shadow-btn fw-bold font-secondary"
                 >
                   <BsWhatsapp className="fs-2 me-2" /> Kontak Admin
