@@ -1,7 +1,6 @@
 import Home from "./Home/Home";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
-import Coba from "./Coba";
 import ListAkun from "./List-Akun/Index";
 import RiwayatPasien from "./Riwayat-Pasien/Index";
 import RekamMedis from "./Rekam-Medis/Index";
@@ -17,7 +16,6 @@ export {
   Login,
   Register,
   Dashboard,
-  Coba,
   AntrianMedis,
   ListAkun,
   RiwayatPasien,
