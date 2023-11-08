@@ -32,11 +32,11 @@ function LayoutFront({ children, logo }) {
             </Nav>
 
             <div className="flex-content align-items-center gap-3">
-              <Link to="register" className="pe-lg-3 text-white fw-bold fs-5">
+              <Link to="/register" className="pe-lg-3 text-white fw-bold fs-5">
                 Daftar
               </Link>
               <Link
-                to="login"
+                to="/login"
                 className="bg-light-green text-white fw-bold fs-5 rounded-pill w-100 py-2 px-4 text-center"
               >
                 Masuk

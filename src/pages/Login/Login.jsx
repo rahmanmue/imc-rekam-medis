@@ -1,6 +1,6 @@
 import { LayoutAccess } from "../../components";
 import { coverLogin } from "../../assets";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Alert from "react-bootstrap/Alert";
 import { useGetUserByNoRekam } from "../../hooks";
@@ -52,25 +52,33 @@ function Login() {
   const login = (id, inputPassword) => {
     setLoading(true);
     refetch({ _eq: id }).then(({ data }) => {
-      const { user } = data;
-      if (user.length) {
-        const id = user[0]?.id;
-        const password = user[0]?.password;
-        const user_role = user[0]?.user_role;
-        const no_rekam_medis = user[0]?.no_rekam_medis;
+      const { user_medis } = data;
+      if (user_medis.length) {
+        const id = user_medis[0]?.id;
+        const nama = user_medis[0]?.nama;
+        const password = user_medis[0]?.password;
+        const user_role = user_medis[0]?.user_role;
+        const no_rekam_medis = user_medis[0]?.no_rekam_medis;
+        const tanggal_lahir = user_medis[0]?.tanggal_lahir;
+        const alamat = user_medis[0]?.alamat;
 
         // console.log(user);
 
         if (compareStr(inputPassword, password)) {
           localStorage.setItem("user_role", hashStr(user_role));
           localStorage.setItem("id", id);
+          localStorage.setItem("nama", nama);
           localStorage.setItem("no_rekam_medis", no_rekam_medis);
-          navigate("/dashboard");
+          localStorage.setItem("tanggal_lahir", tanggal_lahir);
+          localStorage.setItem("alamat", alamat);
           setLoading(false);
+          navigate("/dashboard");
         } else {
+          setLoading(false);
           setShow(true);
         }
       } else {
+        setLoading(false);
         setShow(true);
       }
     });

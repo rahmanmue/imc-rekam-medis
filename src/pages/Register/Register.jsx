@@ -5,6 +5,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useInsertUser } from "../../hooks";
 import { hashStr } from "../../utils";
+import Spinner from "react-bootstrap/Spinner";
 
 function Register() {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ function Register() {
       [name]: value,
     });
   };
-
+  const [loading, setLoading] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     const objects = {
@@ -73,7 +74,6 @@ function Register() {
       tanggal_lahir: data.tanggal_lahir,
       no_rekam_medis: data.no_rekam_medis,
       password: hashStr(data.password),
-      user_role: "pasien",
     };
 
     if (
@@ -82,13 +82,14 @@ function Register() {
       !errMsg.confirm_password &&
       !errMsg.no_rekam_medis
     ) {
+      setLoading(true);
       insertUser({
         variables: {
           objects: objects,
         },
       })
         .then((Object) => {
-          const isObj = Object.data.insert_user;
+          const isObj = Object.data.insert_user_medis;
           if (isObj.affected_rows) {
             const { no_rekam_medis } = isObj.returning[0];
             localStorage.setItem("no_rekam_medis", no_rekam_medis);
@@ -101,6 +102,7 @@ function Register() {
               confirm_password: "",
             });
             navigate("/login");
+            setLoading(false);
           }
         })
         .catch((err) => console.error(err));
@@ -255,7 +257,13 @@ function Register() {
               type="submit"
               className="rounded-1 bg-primary-green text-white font-primary fs-6 fw-bold col-12 py-2 shadow-btn border-0 my-4"
             >
-              Daftar
+              {loading ? (
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
+              ) : (
+                "Daftar"
+              )}
             </button>
           </form>
         </div>

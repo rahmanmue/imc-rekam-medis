@@ -1,14 +1,16 @@
-function CardDashboard({ style, title, children, total }) {
+function CardDashboard({ style, title, icon, number, handleClick, disabled }) {
   return (
-    <div
-      className={`${style} text-white d-flex gap-2 align-items-center justify-content-around p-4 rounded`}
+    <button
+      className={`${style}  text-white d-flex gap-2 align-items-center border-0 justify-content-around p-4 rounded`}
+      onClick={() => handleClick()}
+      disabled={disabled}
     >
-      {children}
+      {icon}
       <div className="text-center">
         <div className="fs-5 fw-bold">{title}</div>
-        <div className="fs-1 fw-bold">{total}</div>
+        <div className="fs-1 fw-bold">{number}</div>
       </div>
-    </div>
+    </button>
   );
 }
 

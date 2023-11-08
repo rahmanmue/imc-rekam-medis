@@ -41,18 +41,24 @@ function InputForm({ props }) {
     <div className="mb-3">
       <label
         htmlFor={props.name}
-        className="form-label font-primary fw-bold text-dark-blue fs-6"
+        className="form-label font-primary fw-bold text-dark-blue"
       >
         {props.label}
       </label>
       <input
         type={props.type}
-        className="form-control"
+        className="form-control "
         id={props.name}
         name={props.name}
         placeholder={props.placeholder}
+        onChange={props.onChange}
+        disabled={props.disabled}
+        value={props.value}
         required
       />
+      <div className="form-text text-danger">
+        {props.errMsg ? props.errMsg : " "}
+      </div>
     </div>
   );
 }

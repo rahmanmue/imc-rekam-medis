@@ -32,8 +32,8 @@ a:hover {
   color: inherit;
 }
 
-.bg-primary {
-  background-color: var(--bg) !important;
+.form-input {
+  width: 85%;
 }
 
 .bg-primary-green {
@@ -83,6 +83,13 @@ a:hover {
 
 .navbar-nav {
   transform: translateX(15%);
+}
+
+button.nav-link,
+button.nav-link:hover {
+  color: var(--dark-blue);
+  font-family: var(--font-primary);
+  font-weight: 400;
 }
 
 .nav-link::after {
@@ -197,8 +204,12 @@ a:hover {
   gap: 0.5rem;
 }
 
-.active {
+.active-link {
   background-color: var(--light-green);
+}
+
+.nav-dashboard {
+  height: 100vh;
 }
 
 /* Laptop */
@@ -276,10 +287,18 @@ a:hover {
     font-size: 1.8rem !important;
   }
 
-  .active {
+  .active-link {
     background-color: var(--light-green);
     border-radius: 30px;
     padding: 10px;
+  }
+
+  .nav-dashboard {
+    height: max-content;
+  }
+
+  .form-input {
+    width: 100%;
   }
 }
 
