@@ -6,11 +6,11 @@ import swal from "sweetalert";
 
 function Index() {
   const navigate = useNavigate();
-  const { uuid } = useParams();
+  const { id_user } = useParams();
   const { nama } = useParams();
   const tanggal = new Date().toISOString().split("T")[0];
   const baseData = {
-    uuid: uuid,
+    id_user: id_user,
     nama: nama,
     tanggal: tanggal,
     alergi: "",
@@ -99,7 +99,7 @@ function Index() {
             button: true,
           });
 
-          navigate(`/rekam-medis/${uuid}`);
+          navigate(`/rekam-medis/${id_user}`);
         }
       })
       .catch((err) => console.error(err));

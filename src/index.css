@@ -40,6 +40,10 @@ a:hover {
   background-color: var(--primary-green);
 }
 
+.text-primary-green {
+  color: var(--primary-green);
+}
+
 .bg-light-green {
   background-color: var(--light-green);
 }

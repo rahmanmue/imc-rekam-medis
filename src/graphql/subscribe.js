@@ -54,7 +54,7 @@ const SUBSCRIBE_NO_ANTRIAN_MAX_WHERE_DATE = gql`
 
 const SUBSCRIBE_REKAM_MEDIS = gql`
   subscription MySubscription($_eq: uuid = "") {
-    rekam_medis(where: { uuid: { _eq: $_eq } }) {
+    rekam_medis(where: { id_user: { _eq: $_eq } }) {
       alergi
       diagnosa
       keluhan
@@ -62,8 +62,8 @@ const SUBSCRIBE_REKAM_MEDIS = gql`
       pembayaran
       tanggal
       therapi
-      uuid
       id
+      id_user
     }
   }
 `;

@@ -15,6 +15,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { GiCancel } from "react-icons/gi";
 import { AiOutlineUser, AiOutlineCheckCircle } from "react-icons/ai";
 import swal from "sweetalert";
+import { Loading } from "../../components";
 
 function Index() {
   const { dataAntrian, loadingAntrian, errorAntrian } = useSubscribeAntrian();
@@ -255,61 +256,65 @@ function Index() {
     },
   ];
 
-  return (
-    <>
-      <Tabs
-        defaultActiveKey="menunggu"
-        id="uncontrolled-tab-example"
-        className="mb-3"
-      >
-        <Tab eventKey="menunggu" title="Antrian Menunggu">
-          <div className="px-2">
-            <DataTable
-              striped={true}
-              columns={columnsMenunggu}
-              data={filteredItemsMenunggu}
-              customStyles={customStyles}
-              pagination
-              selectableRows
-              subHeader
-              subHeaderComponent={subHeaderComponentMemoMenunggu}
-              onSelectedRowsChange={handleChange}
-              paginationComponentOptions={paginationComponentOptions}
-            />
-          </div>
-        </Tab>
+  if (loadingAntrian) {
+    return <Loading />;
+  } else {
+    return (
+      <>
+        <Tabs
+          defaultActiveKey="menunggu"
+          id="uncontrolled-tab-example"
+          className="mb-3"
+        >
+          <Tab eventKey="menunggu" title="Antrian Menunggu">
+            <div className="px-2">
+              <DataTable
+                striped={true}
+                columns={columnsMenunggu}
+                data={filteredItemsMenunggu}
+                customStyles={customStyles}
+                pagination
+                selectableRows
+                subHeader
+                subHeaderComponent={subHeaderComponentMemoMenunggu}
+                onSelectedRowsChange={handleChange}
+                paginationComponentOptions={paginationComponentOptions}
+              />
+            </div>
+          </Tab>
 
-        <Tab eventKey="diterima" title="Antrian Diterima">
-          <div className="px-2">
-            <DataTable
-              striped={true}
-              columns={columnsDiterima}
-              data={filteredItemsDiterima}
-              customStyles={customStyles}
-              pagination
-              subHeader
-              subHeaderComponent={subHeaderComponentMemoDiterima}
-              paginationComponentOptions={paginationComponentOptions}
-            />
-          </div>
-        </Tab>
-        <Tab eventKey="diperiksa" title="Sudah Diperiksa">
-          <div className="px-2">
-            <DataTable
-              striped={true}
-              columns={columnsDiperiksa}
-              data={filteredItemsDiperiksa}
-              customStyles={customStyles}
-              pagination
-              subHeader
-              subHeaderComponent={subHeaderComponentMemoDiperiksa}
-              paginationComponentOptions={paginationComponentOptions}
-            />
-          </div>
-        </Tab>
-      </Tabs>
-    </>
-  );
+          <Tab eventKey="diterima" title="Antrian Diterima">
+            <div className="px-2">
+              <DataTable
+                striped={true}
+                columns={columnsDiterima}
+                data={filteredItemsDiterima}
+                customStyles={customStyles}
+                pagination
+                subHeader
+                subHeaderComponent={subHeaderComponentMemoDiterima}
+                paginationComponentOptions={paginationComponentOptions}
+              />
+            </div>
+          </Tab>
+          <Tab eventKey="diperiksa" title="Sudah Diperiksa">
+            <div className="px-2">
+              <DataTable
+                striped={true}
+                columns={columnsDiperiksa}
+                data={filteredItemsDiperiksa}
+                customStyles={customStyles}
+                pagination
+                subHeader
+                subHeaderComponent={subHeaderComponentMemoDiperiksa}
+                paginationComponentOptions={paginationComponentOptions}
+              />
+            </div>
+          </Tab>
+        </Tabs>
+      </>
+    );
+  }
 }
 
 export default Index;

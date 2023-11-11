@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { logo } from "../../assets";
 
-function LayoutFront({ children, logo }) {
+function LayoutFront({ children }) {
   const year = new Date().getFullYear();
   return (
     <>

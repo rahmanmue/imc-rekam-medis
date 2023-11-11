@@ -7,7 +7,6 @@ import {
   paginationComponentOptions,
   toRupiah,
 } from "../../utils";
-import { useState, useMemo } from "react";
 import swal from "sweetalert";
 import { getAge } from "../../utils";
 import { Link, useParams } from "react-router-dom";
@@ -20,19 +19,18 @@ import { Loading } from "../../components";
 import { isRole } from "../../utils";
 
 function Index() {
-  const { uuid } = useParams();
-  const { data: user_medis, error: errorUser } = useGetUserByPk(uuid);
+  const { id_user } = useParams();
+  const { data: user_medis, error: errorUser } = useGetUserByPk(id_user);
   const data = user_medis?.user_medis_by_pk;
   if (errorUser) console.error(errorUser);
 
   const user = isRole(localStorage.getItem("user_role"));
-  // const user = "pasien";
   // ambil detail rekam medis pasien berdasarkna id
   const {
     data: list_rekam_medis,
     loading: loading_rekam_medis,
     error: err_rekam_medis,
-  } = useSubscribeRekamMedis(uuid);
+  } = useSubscribeRekamMedis(id_user);
   if (err_rekam_medis) console.error(err_rekam_medis);
 
   const listRekamMedis = list_rekam_medis?.rekam_medis;
@@ -143,7 +141,9 @@ function Index() {
         center: true,
         cell: (row) => (
           <div className="d-flex gap-3">
-            <Link to={`/rekam-medis/edit/${data?.nama}/${row.id}/${row.uuid}`}>
+            <Link
+              to={`/rekam-medis/edit/${data?.nama}/${row.id}/${row.id_user}`}
+            >
               <FaEdit className="text-warning fs-4 pointer" />
             </Link>
           </div>
@@ -212,7 +212,7 @@ function Index() {
         <div className="mb-4 d-flex justify-content-end pe-4">
           <Link
             className="bg-primary-green text-white p-2 font-primary fw-bold fs-5 rounded d-flex align-items-center gap-2"
-            to={`/rekam-medis/tambah/${data?.nama}/${uuid}`}
+            to={`/rekam-medis/tambah/${data?.nama}/${id_user}`}
           >
             <AiOutlinePlus className="fs-4" /> Tambah
           </Link>

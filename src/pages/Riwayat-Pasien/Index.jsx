@@ -1,7 +1,6 @@
-import { LayoutBack } from "../../components";
+import { Loading } from "../../components";
 import DataTable from "react-data-table-component";
 import { AiOutlineUser } from "react-icons/ai";
-import { BsFillTrashFill, BsInfoCircle } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
 import { customStyles, paginationComponentOptions } from "../../utils";
 import { useState, useMemo } from "react";
@@ -70,22 +69,26 @@ function Index() {
     },
   ];
 
-  return (
-    <>
-      <div className="px-2">
-        <DataTable
-          striped={true}
-          columns={columnsRiwayatPasien}
-          data={filteredItems}
-          customStyles={customStyles}
-          pagination
-          subHeader
-          subHeaderComponent={subHeaderComponentMemo}
-          paginationComponentOptions={paginationComponentOptions}
-        />
-      </div>
-    </>
-  );
+  if (loadingUser) {
+    return <Loading />;
+  } else {
+    return (
+      <>
+        <div className="px-2">
+          <DataTable
+            striped={true}
+            columns={columnsRiwayatPasien}
+            data={filteredItems}
+            customStyles={customStyles}
+            pagination
+            subHeader
+            subHeaderComponent={subHeaderComponentMemo}
+            paginationComponentOptions={paginationComponentOptions}
+          />
+        </div>
+      </>
+    );
+  }
 }
 
 export default Index;

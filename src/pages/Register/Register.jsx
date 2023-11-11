@@ -105,7 +105,10 @@ function Register() {
             setLoading(false);
           }
         })
-        .catch((err) => console.error(err));
+        .catch((err) => {
+          setLoading(false);
+          console.error(err);
+        });
     } else {
       alert("Harap isi data anda dengan Benar");
     }

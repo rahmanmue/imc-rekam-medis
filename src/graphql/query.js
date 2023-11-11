@@ -38,7 +38,7 @@ const GET_REKAM_MEDIS_BY_ID = gql`
       pembayaran
       tanggal
       therapi
-      uuid
+      id_user
     }
   }
 `;

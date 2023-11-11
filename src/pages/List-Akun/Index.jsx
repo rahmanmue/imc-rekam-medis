@@ -56,7 +56,7 @@ function Index() {
           },
         })
           .then(({ data }) => {
-            const affected_rows = data.user_medis.affected_rows;
+            const affected_rows = data.delete_user_medis.affected_rows;
             if (affected_rows) {
               swal("Data Berhasil Dihapus!", {
                 icon: "success",
@@ -93,7 +93,7 @@ function Index() {
       selector: (row) => (
         <span className="text-uppercase">{row.user_role}</span>
       ),
-      maxWidth: "15%",
+      maxWidth: "18%",
       center: true,
     },
     {

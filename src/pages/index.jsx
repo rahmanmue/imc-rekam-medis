@@ -10,6 +10,7 @@ import Dashboard from "./Dashboard/Index";
 import EditAkun from "./List-Akun/Edit";
 import TambahRekamMedis from "./Rekam-Medis/Add";
 import EditRekamMedis from "./Rekam-Medis/Edit";
+import NotFound from "./Not-Found/Index";
 
 export {
   Home,
@@ -24,4 +25,5 @@ export {
   EditAkun,
   TambahRekamMedis,
   EditRekamMedis,
+  NotFound,
 };

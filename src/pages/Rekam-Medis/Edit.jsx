@@ -6,19 +6,19 @@ import swal from "sweetalert";
 
 function Index() {
   const navigate = useNavigate();
-  const { uuid } = useParams();
-  const { id } = useParams();
+  const { id_user } = useParams();
+  const { id_rekam_medis } = useParams();
   const { nama } = useParams();
   const tanggal = new Date().toISOString().split("T")[0];
-  const { data: dataDetail, error } = useGetRekamMedisById(id);
+  const { data: dataDetail, error } = useGetRekamMedisById(id_rekam_medis);
   if (error) console.error(error);
   // data diisi berdasarkan getuserby id
   const rekam_medis = dataDetail?.rekam_medis[0];
-  console.log(rekam_medis);
+  // console.log(rekam_medis);
 
   const [data, setData] = useState({
-    id: id,
-    uuid: uuid,
+    id: id_rekam_medis,
+    id_user: id_user,
     nama: nama,
     tanggal: tanggal,
     alergi: rekam_medis?.alergi,
@@ -92,10 +92,9 @@ function Index() {
   const { updateRekamMedis } = useUpdateRekamMedis();
   const handleEditCatatanMedis = (e) => {
     e.preventDefault();
-    console.log("test");
     updateRekamMedis({
       variables: {
-        _eq: id,
+        _eq: id_rekam_medis,
         _set: data,
       },
     })
@@ -106,7 +105,7 @@ function Index() {
             button: true,
           });
 
-          navigate(`/rekam-medis/${uuid}`);
+          navigate(`/rekam-medis/${id_user}`);
         }
       })
       .catch((err) => console.error(err));

@@ -1,4 +1,4 @@
-import { logo, heroImage, aboutImage } from "../../assets";
+import { heroImage, aboutImage } from "../../assets";
 import { LayoutFront } from "../../components";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { BsWhatsapp } from "react-icons/bs";
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <LayoutFront logo={logo}>
+    <LayoutFront>
       <section id="hero">
         <div className="container">
           <div className="flex-content align-items-center pt-5 pb-3">
@@ -130,7 +130,7 @@ function Home() {
             <div className="col-md-12 " id="contact">
               <div className="flex-content justify-content-center align-items-center gap-3">
                 <a
-                  href="https://wa.link/4x5g4r"
+                  href="https://wa.link/qaeu2u"
                   className="bg-primary-green py-3 px-4 fs-5 rounded-pill text-white shadow-btn fw-bold font-secondary"
                 >
                   <BsWhatsapp className="fs-2 me-2" /> Kontak Admin

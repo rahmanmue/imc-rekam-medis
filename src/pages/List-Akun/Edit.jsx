@@ -5,10 +5,9 @@ import { useGetUserByPk, useUpdateUserById } from "../../hooks";
 import { hashStr } from "../../utils";
 
 function Index() {
-  const { id } = useParams();
+  const { id_user } = useParams();
   const navigate = useNavigate();
-
-  const { data: dataUser, loading, error } = useGetUserByPk(id);
+  const { data: dataUser, loading, error } = useGetUserByPk(id_user);
   const { updateUserById } = useUpdateUserById();
 
   // data diisi berdasarkan getuserby id
@@ -73,10 +72,10 @@ function Index() {
     });
   };
 
-  const updateUser = (id, newData) => {
+  const updateUser = (id_user, newData) => {
     updateUserById({
       variables: {
-        _eq: id,
+        _eq: id_user,
         _set: newData,
       },
     })
@@ -118,7 +117,7 @@ function Index() {
       // console.log(newData);
       // console.log(id);
 
-      updateUser(id, newData);
+      updateUser(id_user, newData);
     } else {
       // swal gagal
       swal(

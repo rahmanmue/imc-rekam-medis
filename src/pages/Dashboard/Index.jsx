@@ -28,7 +28,7 @@ function Index() {
       disabled = false;
     } else if (status === "diperiksa") {
       style = "bg-success";
-      title = "Anda Sudah Diperiksa";
+      title = "Anda Sudah Diperiksa Dengan No Antrian";
     } else if (status === "diterima") {
       style = "bg-dark-blue";
       title = "Nomor Antrian Anda";
@@ -128,7 +128,7 @@ function Index() {
     };
 
     const handleTanyaAdmin = () => {
-      window.location.replace("https://wa.link/4x5g4r");
+      window.location.replace("https://wa.link/qaeu2u");
     };
 
     return (

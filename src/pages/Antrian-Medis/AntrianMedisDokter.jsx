@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { AiOutlineUser, AiOutlineCheckCircle } from "react-icons/ai";
+import { Loading } from "../../components";
 
 function Index() {
   const { dataAntrian, loadingAntrian, errorAntrian } = useSubscribeAntrian();
@@ -87,22 +88,26 @@ function Index() {
     },
   ];
 
-  return (
-    <>
-      <div className="px-2">
-        <DataTable
-          striped={true}
-          columns={columnsDiterima}
-          data={filteredItemsDiterima}
-          customStyles={customStyles}
-          pagination
-          subHeader
-          subHeaderComponent={subHeaderComponentMemoDiterima}
-          paginationComponentOptions={paginationComponentOptions}
-        />
-      </div>
-    </>
-  );
+  if (loadingAntrian) {
+    return <Loading />;
+  } else {
+    return (
+      <>
+        <div className="px-2">
+          <DataTable
+            striped={true}
+            columns={columnsDiterima}
+            data={filteredItemsDiterima}
+            customStyles={customStyles}
+            pagination
+            subHeader
+            subHeaderComponent={subHeaderComponentMemoDiterima}
+            paginationComponentOptions={paginationComponentOptions}
+          />
+        </div>
+      </>
+    );
+  }
 }
 
 export default Index;
