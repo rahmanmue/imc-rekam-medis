@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { logo } from "../../assets";
+import { NavHashLink } from "react-router-hash-link";
 
 function LayoutFront({ children }) {
   const year = new Date().getFullYear();
@@ -20,15 +21,15 @@ function LayoutFront({ children }) {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto mb-2 mb-lg-0 fw-bold fs-5 ">
-              <Nav.Link href="#hero" className="text-white">
+              <NavHashLink to="#hero" className="text-white nav-link">
                 Beranda
-              </Nav.Link>
-              <Nav.Link href="#info" className="text-white">
+              </NavHashLink>
+              <NavHashLink to="#info" className="text-white nav-link">
                 Tentang Kami
-              </Nav.Link>
-              <Nav.Link href="#contact" className="text-white">
+              </NavHashLink>
+              <NavHashLink to="#contact" className="text-white nav-link">
                 Kontak
-              </Nav.Link>
+              </NavHashLink>
             </Nav>
 
             <div className="flex-content align-items-center gap-3">
